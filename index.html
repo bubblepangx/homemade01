@@ -43,7 +43,8 @@ let tNow=0;
 
 // ═══ AUDIO ═══
 let AC=null,audioUnlocked=false;
-function uAC(){if(!AC)try{AC=new(window.AudioContext||window.webkitAudioContext)()}catch(e){}if(AC&&AC.state==='suspended')AC.resume().catch(()=>{});if(AC&&!audioUnlocked){try{const b=AC.createBuffer(1,1,22050),s=AC.createBufferSource();s.buffer=b;s.connect(AC.destination);s.start(0);audioUnlocked=true;}catch(e){}}return AC;}
+function uAC(){if(!AC)try{AC=new(window.AudioContext||window.webkitAudioContext)()}catch(e){}if(!AC)return null;if(AC.state==='suspended')AC.resume().catch(()=>{});if(!audioUnlocked){try{const b=AC.createBuffer(1,1,22050),s=AC.createBufferSource();s.buffer=b;s.connect(AC.destination);s.start(0);const o=AC.createOscillator(),g=AC.createGain();g.gain.value=0;o.connect(g);g.connect(AC.destination);o.start(0);o.stop(AC.currentTime+0.001);audioUnlocked=true;}catch(e){}}return AC;}
+['touchstart','touchend','click'].forEach(function(ev){document.addEventListener(ev,function(){uAC();},{once:true,passive:true});});
 function bip(f,d,v=0.09,tp='square',at=0){const ac=uAC();if(!ac||ac.state==='suspended')return;const now=ac.currentTime+(at||0);const o=ac.createOscillator(),g=ac.createGain();o.type=tp;o.frequency.value=f;g.gain.setValueAtTime(v,now);g.gain.exponentialRampToValueAtTime(0.001,now+Math.max(d,0.05));o.connect(g);g.connect(ac.destination);o.start(now);o.stop(now+d+0.01);}
 const SFX={
   jump:()=>{bip(330,0.06,0.08);bip(440,0.10,0.07,'square',0.05);},
