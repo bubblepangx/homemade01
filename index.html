@@ -242,16 +242,28 @@ function drawCoin3D(cx2,cy2){
     X.globalAlpha=1;}
 }
 
-// ═══ MARIO PIXEL ART ═══
-const MS=["0000011111000000","0000111111100000","0000333222000000","0003322322200000","0003322222200000","0003332220330000","0000022222000000","0001114411100000","0021114411120000","0022114411220000","0022044440220000","0000044440000000","0000114411000000","0001114411100000","0001110001110000","0003330003330000"];
-const MR1=["0000011111000000","0000111111100000","0000333222000000","0003322322200000","0003322222200000","0003332220330000","0000022222000000","0000114411100000","0001114415500000","0001114411000000","0000144440000000","0000044411000000","0000011440000000","0000011110000000","0000111100000000","0000333000000000"];
-const MR2=["0000011111000000","0000111111100000","0000333222000000","0003322322200000","0003322222200000","0003332220330000","0000022222000000","0001111441000000","0055114411000000","0000114411100000","0000044441000000","0001144400000000","0000044110000000","0000011110000000","0000001111000000","0000000333000000"];
-const MJ=["0001100000000000","0001111110000000","0000333222000000","0003322322200000","0003322222200000","0003332220330000","0000022222000000","0001114415500000","0221114411110000","0222044440110000","0000044440010000","0000044440000000","0000041140000000","0000011330000000","0000333000000000","0003330000000000"];
+// ═══ MARIO 3D PIXEL ART ═══
+// Enhanced sprites with more detail: a=red hi, b=red dk, c=skin hi, d=skin dk, e=blue hi, f=blue dk, g=brown hi, h=brown dk
+const MS=["0000011111000000","000a1111111a0000","0000ggh222d00000","00g33c2c222d0000","00g33c2222dd0000","00g333222h330000","00000c2222d00000","000a11e44e11a000","00ca11e44e11cd00","00cc1e4e4e1ccd00","00cc0e444e0cc000","000000e44f0000d0","0000a1e44e1a0000","000a11e44e11a000","000a110001110000","000g3h000g3h0000"];
+const MR1=["0000011111000000","000a1111111a0000","0000ggh222d00000","00g33c2c222d0000","00g33c2222dd0000","00g333222h330000","00000c2222d00000","00001e4e4e11a000","000a1e44e55a0000","000a11e44e100000","0000ae444f000000","000000e44e1a0000","00000a1e4f000000","00000a111a000000","0000a11a00000000","0000g3h000000000"];
+const MR2=["0000011111000000","000a1111111a0000","0000ggh222d00000","00g33c2c222d0000","00g33c2222dd0000","00g333222h330000","00000c2222d00000","000a111e4e100000","0055a1e44e100000","0000a1e44e11a000","00000e444e1a0000","000a1e44f0000000","00000e4e1a000000","00000a111a000000","000000a111a00000","00000000g3h00000"];
+const MJ=["000a100000000000","000a1111a0000000","0000ggh222d00000","00g33c2c222d0000","00g33c2222dd0000","00g333222h330000","00000c2222d00000","000a11e44e55a000","0ca11e44e111a000","0ccc0e444e01a000","00000e444f01d000","00000e4e4f000000","00000e1ae4000000","00000a1g3h000000","0000g3h000000000","000g3h0000000000"];
 // White Mario (star power)
-const MW=["0000077777000000","0000777777700000","0000333222000000","0003322322200000","0003322222200000","0003332220330000","0000022222000000","0007774477700000","0027774477720000","0022744474220000","0022044440220000","0000044440000000","0000774477000000","0007774477700000","0007770007770000","0003330003330000"];
+const MWS=["0000077777000000","000a7777777a0000","0000ggh222d00000","00g33c2c222d0000","00g33c2222dd0000","00g333222h330000","00000c2222d00000","000a77e44e77a000","00ca77e44e77cd00","00cc7e4e4e7ccd00","00cc0e444e0cc000","000000e44f0000d0","0000a7e44e7a0000","000a77e44e77a000","000a770007770000","000g3h000g3h0000"];
+const MWR1=["0000077777000000","000a7777777a0000","0000ggh222d00000","00g33c2c222d0000","00g33c2222dd0000","00g333222h330000","00000c2222d00000","00007e4e4e77a000","000a7e44e55a0000","000a77e44e700000","0000ae444f000000","000000e44e7a0000","00000a7e4f000000","00000a777a000000","0000a77a00000000","0000g3h000000000"];
+const MWR2=["0000077777000000","000a7777777a0000","0000ggh222d00000","00g33c2c222d0000","00g33c2222dd0000","00g333222h330000","00000c2222d00000","000a777e4e700000","0055a7e44e700000","0000a7e44e77a000","00000e444e7a0000","000a7e44f0000000","00000e4e7a000000","00000a777a000000","000000a777a00000","00000000g3h00000"];
+const MWJ=["000a700000000000","000a7777a0000000","0000ggh222d00000","00g33c2c222d0000","00g33c2222dd0000","00g333222h330000","00000c2222d00000","000a77e44e55a000","0ca77e44e777a000","0ccc0e444e07a000","00000e444f07d000","00000e4e4f000000","00000e7ae4000000","00000a7g3h000000","0000g3h000000000","000g3h0000000000"];
 
-const MC2={0:'',1:'#E03020',2:'#FFA060',3:'#8B4513',4:'#2040CC',5:'#FFD700',6:'#FFFFFF',7:'#FFFFFF'};
-const MC_W={0:'',1:'#FFFFFF',2:'#FFA060',3:'#8B4513',4:'#AAE0FF',5:'#FFD700',6:'#FFFFFF',7:'#FFFFFF'};
+// Color palettes - normal and white (star) Mario
+const MC2={0:'',1:'#E03020',2:'#FFBE90',3:'#8B4513',4:'#2855DD',5:'#FFD700',6:'#FFFFFF',7:'#FFFFFF',
+  a:'#FF5040',b:'#A01808',c:'#FFD4B0',d:'#D08858',e:'#4070EE',f:'#1A3599',g:'#A86828',h:'#5A2A08'};
+const MC_W={0:'',1:'#FFFFFF',2:'#FFBE90',3:'#8B4513',4:'#88CCFF',5:'#FFD700',6:'#FFFFFF',7:'#FFFFFF',
+  a:'#FFFFFF',b:'#C8C8C8',c:'#FFD4B0',d:'#D08858',e:'#AAE0FF',f:'#5588BB',g:'#A86828',h:'#5A2A08'};
+
+// Precompute lighter/darker variants for 3D shading
+const _shadeCache={};
+function _lighter(hex,amt){const k='l'+amt+hex;if(_shadeCache[k])return _shadeCache[k];const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);const v='#'+[r,g,b].map(c=>Math.min(255,c+amt|0).toString(16).padStart(2,'0')).join('');_shadeCache[k]=v;return v;}
+function _darker(hex,amt){const k='d'+amt+hex;if(_shadeCache[k])return _shadeCache[k];const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);const v='#'+[r,g,b].map(c=>Math.max(0,c-amt|0).toString(16).padStart(2,'0')).join('');_shadeCache[k]=v;return v;}
 
 function drawPM(px,py,sprite,w,h,flip,white){
   X.save();
@@ -259,9 +271,55 @@ function drawPM(px,py,sprite,w,h,flip,white){
   else X.translate(Math.round(px),Math.round(py));
   const rows=sprite.length,cols=16,cw=w/cols,ch=h/rows;
   const pal=white?MC_W:MC2;
-  for(let r=0;r<rows;r++)for(let cl=0;cl<cols;cl++){
-    const ch2=sprite[r][cl];if(ch2==='0')continue;
-    X.fillStyle=pal[ch2];X.fillRect(Math.floor(cl*cw),Math.floor(r*ch),Math.ceil(cw)+0.5,Math.ceil(ch)+0.5);
+  // Pass 1: main fill + 3D bevel per pixel
+  for(let r=0;r<rows;r++){
+    for(let cl=0;cl<cols;cl++){
+      const ch2=sprite[r][cl];if(ch2==='0')continue;
+      const color=pal[ch2];if(!color)continue;
+      const cx=Math.floor(cl*cw),cy=Math.floor(r*ch);
+      const pw=Math.ceil(cw)+0.5,ph=Math.ceil(ch)+0.5;
+      // Main pixel
+      X.fillStyle=color;
+      X.fillRect(cx,cy,pw,ph);
+      // Top highlight (check if pixel above is empty)
+      const above=r>0?sprite[r-1][cl]:'0';
+      if(above==='0'){
+        X.fillStyle=_lighter(color,55);
+        X.fillRect(cx,cy,pw,Math.max(1,ph*0.3));
+      }
+      // Left highlight
+      const left=cl>0?sprite[r][cl-1]:'0';
+      if(left==='0'){
+        X.fillStyle=_lighter(color,35);
+        X.fillRect(cx,cy,Math.max(1,pw*0.25),ph);
+      }
+      // Bottom shadow
+      const below=r<rows-1?sprite[r+1][cl]:'0';
+      if(below==='0'){
+        X.fillStyle=_darker(color,50);
+        X.fillRect(cx,cy+ph-Math.max(1,ph*0.3),pw,Math.max(1,ph*0.3));
+      }
+      // Right shadow
+      const right=cl<cols-1?sprite[r][cl+1]:'0';
+      if(right==='0'){
+        X.fillStyle=_darker(color,35);
+        X.fillRect(cx+pw-Math.max(1,pw*0.25),cy,Math.max(1,pw*0.25),ph);
+      }
+    }
+  }
+  // Pass 2: subtle dark outline around sprite silhouette
+  X.fillStyle='rgba(0,0,0,0.18)';
+  for(let r=0;r<rows;r++){
+    for(let cl=0;cl<cols;cl++){
+      if(sprite[r][cl]==='0')continue;
+      const cx=Math.floor(cl*cw),cy=Math.floor(r*ch);
+      const pw=Math.ceil(cw)+0.5,ph=Math.ceil(ch)+0.5;
+      // Only draw outline on edges adjacent to transparent
+      if(r===0||sprite[r-1][cl]==='0')X.fillRect(cx,cy-0.5,pw,1);
+      if(r===rows-1||sprite[r+1][cl]==='0')X.fillRect(cx,cy+ph-0.5,pw,1);
+      if(cl===0||sprite[r][cl-1]==='0')X.fillRect(cx-0.5,cy,1,ph);
+      if(cl===cols-1||sprite[r][cl+1]==='0')X.fillRect(cx+pw-0.5,cy,1,ph);
+    }
   }
   X.restore();
 }
@@ -555,21 +613,43 @@ function drawMario(sx,sy){
   const flip=P.dir<0;
   const f=P.aF%4;const inAir=!P.gnd&&!P.onPole;
   const white=P.star;
-  // Drop shadow
-  X.fillStyle='rgba(0,0,0,0.25)';
-  X.beginPath();X.ellipse(sx+P.w/2,sy+P.h+2,P.w*0.45,4,0,0,Math.PI*2);X.fill();
-  // Star glow
-  if(P.star){const glow=X.createRadialGradient(sx+P.w/2,sy+P.h/2,5,sx+P.w/2,sy+P.h/2,P.w*1.2);glow.addColorStop(0,'rgba(255,255,200,0.4)');glow.addColorStop(1,'rgba(255,255,100,0)');X.fillStyle=glow;X.beginPath();X.arc(sx+P.w/2,sy+P.h/2,P.w*1.2,0,Math.PI*2);X.fill();}
+  // Star glow (enhanced rainbow pulse)
+  if(P.star){
+    const t=tNow/80;
+    const r2=P.w*1.3+Math.sin(t)*4;
+    const hue=(tNow/4)%360;
+    const glow=X.createRadialGradient(sx+P.w/2,sy+P.h/2,3,sx+P.w/2,sy+P.h/2,r2);
+    glow.addColorStop(0,`hsla(${hue},100%,85%,0.35)`);
+    glow.addColorStop(0.5,`hsla(${hue+60},100%,70%,0.15)`);
+    glow.addColorStop(1,`hsla(${hue},100%,50%,0)`);
+    X.fillStyle=glow;X.beginPath();X.arc(sx+P.w/2,sy+P.h/2,r2,0,Math.PI*2);X.fill();
+    // Star sparkle particles
+    for(let i=0;i<4;i++){
+      const a=tNow/200+i*Math.PI/2;
+      const dist=P.w*0.7+Math.sin(tNow/150+i)*6;
+      const spx=sx+P.w/2+Math.cos(a)*dist;
+      const spy=sy+P.h/2+Math.sin(a)*dist;
+      X.fillStyle=`hsla(${(hue+i*90)%360},100%,90%,${0.5+Math.sin(tNow/100+i)*0.3})`;
+      X.fillRect(spx-1,spy-1,3,3);
+    }
+  }
+  // Select sprite - use separate white mario sprites for star power
   let sprite;
-  if(inAir)sprite=MJ;
-  else if(Math.abs(P.vx)<0.3)sprite=MS;
-  else sprite=f%2===0?MR1:MR2;
-  // Dark outline pass
-  X.globalAlpha=0.2;drawPM(sx+1,sy+1,sprite,P.w,P.h,flip,false);X.globalAlpha=1;
-  // Main sprite
+  if(white){
+    if(inAir)sprite=MWJ;
+    else if(Math.abs(P.vx)<0.3)sprite=MWS;
+    else sprite=f%2===0?MWR1:MWR2;
+  }else{
+    if(inAir)sprite=MJ;
+    else if(Math.abs(P.vx)<0.3)sprite=MS;
+    else sprite=f%2===0?MR1:MR2;
+  }
+  // Main sprite with 3D pixel rendering
   drawPM(sx,sy,sprite,P.w,P.h,flip,white);
-  // Highlight on top
-  X.globalAlpha=0.12;X.fillStyle='#FFF';X.fillRect(flip?sx+P.w*0.4:sx+P.w*0.15,sy+2,P.w*0.3,P.h*0.25);X.globalAlpha=1;
+  // Subtle specular highlight on top of character
+  X.globalAlpha=0.08;X.fillStyle='#FFF';
+  X.fillRect(flip?sx+P.w*0.35:sx+P.w*0.2,sy+1,P.w*0.3,P.h*0.18);
+  X.globalAlpha=1;
 }
 
 function drawEnemy(e){
