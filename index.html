@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <title>Super Mario Bros Ultimate - 30 Stages</title>
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="theme-color" content="#E03020">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;user-select:none;}
 body{background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;min-height:100dvh;overflow:hidden;}
@@ -36,8 +42,8 @@ const W=800,H=480,T=32,GY=13*T;
 let tNow=0;
 
 // ═══ AUDIO ═══
-let AC=null;
-function uAC(){if(!AC)try{AC=new(window.AudioContext||window.webkitAudioContext)()}catch(e){}if(AC&&AC.state==='suspended')AC.resume().catch(()=>{});return AC;}
+let AC=null,audioUnlocked=false;
+function uAC(){if(!AC)try{AC=new(window.AudioContext||window.webkitAudioContext)()}catch(e){}if(AC&&AC.state==='suspended')AC.resume().catch(()=>{});if(AC&&!audioUnlocked){try{const b=AC.createBuffer(1,1,22050),s=AC.createBufferSource();s.buffer=b;s.connect(AC.destination);s.start(0);audioUnlocked=true;}catch(e){}}return AC;}
 function bip(f,d,v=0.09,tp='square',at=0){const ac=uAC();if(!ac||ac.state==='suspended')return;const now=ac.currentTime+(at||0);const o=ac.createOscillator(),g=ac.createGain();o.type=tp;o.frequency.value=f;g.gain.setValueAtTime(v,now);g.gain.exponentialRampToValueAtTime(0.001,now+Math.max(d,0.05));o.connect(g);g.connect(ac.destination);o.start(now);o.stop(now+d+0.01);}
 const SFX={
   jump:()=>{bip(330,0.06,0.08);bip(440,0.10,0.07,'square',0.05);},
@@ -968,7 +974,7 @@ function startGame(){
   LEVELS=mkLevels();buildLevel(0);initP();
   // Reset all keys on game start
   for(const k in keys)keys[k]=false;jumpPressed=false;
-  setTimeout(()=>startBGM(LEVELS[0].theme),100);
+  startBGM(LEVELS[0].theme);
 }
 
 // ═══ MAIN LOOP ═══
